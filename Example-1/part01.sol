@@ -14,5 +14,10 @@ abstract contract Inbox {
     function getMessage() public view returns(string memory){
         return message;
     }
-    
+    function doMath(int a,int b) public pure {
+        a+b; //3 gas
+        a-b; //3 gas
+        a*b; //5 gas
+        a==0; //3 gas
+    }
 }
