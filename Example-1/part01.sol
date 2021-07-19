@@ -18,6 +18,6 @@ abstract contract Inbox {
         a+b; //3 gas
         a-b; //3 gas
         a*b; //5 gas
-        a==0; //3 gas
+        a==0; //3 gas ücretleri
     }
 }
