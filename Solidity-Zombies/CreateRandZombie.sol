@@ -16,12 +16,19 @@ contract ZombieFactory {
     Zombie[] public zombies;
     //Creating a function 
     //memory _name: specifies where the name will be provided in memory
-    function createZombie (string memory _name, uint _dna) public {
+    function _createZombie (string memory _name, uint _dna) public {
         zombies.push(Zombie(_name, _dna)); // Array push
     }
+    //random dna generator module
     function _generateRandomDna(string memory _str) private view returns (uint) {
-        // empty private function
+        uint rand = uint(keccak256(abi.encodePacked(_str))); //256 casting
+        return rand % dnaModulus;
     }
+    //We created a random zombie and put it in the zombie array.
+    function createRandomZombie(string memory _name) public {
+        uint randDna = _generateRandomDna(_name);
+        _createZombie(_name, randDna);
+    }    
 
 }
 
