@@ -20,4 +20,7 @@ abstract contract Inbox {
         a*b; //5 gas
         a==0; //3 gas ücretleri
     }
+    function getMessageV2() public view returns(string memory){
+        return message+"V2";
+    }
 }
